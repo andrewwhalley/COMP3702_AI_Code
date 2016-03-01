@@ -1,0 +1,15 @@
+import java.awt.geom.Point2D;
+import java.awt.Rectangle;
+
+@SuppressWarnings({"serial", "unused"})
+public class Obstacle extends Rectangle {
+	
+	private Point2D topLeft;
+	private Rectangle obstacle;
+	
+	public Obstacle(double x, double y, double width, double height) {
+		topLeft = new Point2D.Double(x, y);
+		
+		obstacle = new Rectangle(topLeft, width, height);
+	}
+}

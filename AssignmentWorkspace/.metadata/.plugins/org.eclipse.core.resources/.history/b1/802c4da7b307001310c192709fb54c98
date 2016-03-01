@@ -1,0 +1,12 @@
+import java.awt.geom.Point2D;
+import java.awt.Rectangle;
+
+@SuppressWarnings({"serial", "unused"})
+public class Obstacle extends Rectangle {
+	
+	private Point2D topLeft;
+	private Point2D bottomRight;
+	public Obstacle() {
+		
+	}
+}

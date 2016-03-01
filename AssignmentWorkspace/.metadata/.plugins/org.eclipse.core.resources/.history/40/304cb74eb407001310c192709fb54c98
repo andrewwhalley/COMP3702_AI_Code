@@ -1,0 +1,21 @@
+import java.awt.geom.Point2D;
+import java.awt.geom.Rectangle2D;
+
+
+@SuppressWarnings("unused")
+public abstract class Obstacle extends Rectangle2D {
+	
+	private Point2D topLeft;
+	private Rectangle2D obstacle;
+	
+	/**
+	 * Initialise a new obstacle (Rectangle2D) for the simulation
+	 * @param x - top left corner x coord
+	 * @param y - top left corner y coord
+	 * @param width - width of the rectangle
+	 * @param height - height of the rectangle
+	 */
+	public Obstacle(double x, double y, double width, double height) {		
+		obstacle = new Rectangle2D.Double(x, y, width, height);
+	}
+}

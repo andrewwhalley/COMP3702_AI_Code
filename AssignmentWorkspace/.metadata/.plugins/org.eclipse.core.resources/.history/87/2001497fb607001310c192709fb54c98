@@ -1,0 +1,96 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+
+@SuppressWarnings("unused")
+public class assg1_42588610_42719747 {
+
+	/**
+	 * @param args
+	 */
+	private static int numASV;
+	private static String initial;
+	private static String goal;
+	private static ArrayList<Obstacle> obstacles;
+	private static ArrayList<Asv> asvList;
+	
+	private static void readFile(String inputFileName) throws IOException {
+		BufferedReader input = new BufferedReader(new FileReader(inputFileName));
+		// Read the number of ASV's from the file.
+		numASV = Integer.valueOf(input.readLine().trim());
+		// Read the initial and goal co-ordinates in
+		initial = input.readLine().trim();
+		goal = input.readLine().trim();
+		// Read the number of obstacles.
+		String s = input.readLine();
+		if (s != null) {
+			s.trim();
+			int numObstacles = Integer.valueOf(s);
+			// Read in the co-ordinates of each obstacle
+			for (int i = 0; i < numObstacles; i++) {
+				createObstacles(input.readLine());
+			}
+		}
+		input.close();
+	}
+	
+	private static void createASVs() {
+		asvList = new ArrayList<Asv>();
+		String[] initialArr = initial.split("\\s+");
+		String[] goalArr = goal.split("\\s+");
+		int index = 0;
+		while (index < initialArr.length - 1) {
+			// Get the ASV details
+			double x = Double.valueOf(initialArr[index]);
+			double y = Double.valueOf(initialArr[index + 1]);
+			double xFin = Double.valueOf(goalArr[index]);
+			double yFin = Double.valueOf(goalArr[index + 1]);
+			// Add that ASV to the list
+			asvList.add(new Asv(x, y, xFin, yFin, null, null));
+			// Move on to the next ASV
+			index += 2;
+		}
+	}
+	
+	private static void createObstacles(String obs) {
+		String[] obsArr = obs.split("\\s+");
+		if (obsArr.length != 8) {
+			System.err.println("Invalid Obstacle details");
+			System.exit(0);
+		}
+		// x & y are top left corner values
+		double x = Double.valueOf(obsArr[6]);
+		double y = Double.valueOf(obsArr[7]);
+		// Calculate width and height based off the input values
+		double width = Double.valueOf(obsArr[4]) - x;
+		double height = y - Double.valueOf(obsArr[1]);
+		// Create a new obstacle and add it to the obstacle arrayList
+		obstacles.add(new Obstacle(x, y, width, height));
+	}
+	
+	public static void main(String[] args) {
+		// Input file first
+		// Output file second
+		String input_file_name = new String(args[0]);
+		String output_file_name = new String(args[1]);
+		// Attempt to read the input file
+		try {
+			readFile(input_file_name);
+		} catch (IOException e) {
+			System.err.println("Couldn't read from File " + input_file_name);
+			e.printStackTrace();
+			return;
+		}
+		// Create the ArrayList of ASVs
+		createASVs();
+		// Initialise the Search
+		ASVSearch findPath = new ASVSearch(asvList, obstacles);
+		// TODO: Do the search
+		System.out.println(findPath.toString());
+		
+		// TODO: Output the file
+	}
+
+}

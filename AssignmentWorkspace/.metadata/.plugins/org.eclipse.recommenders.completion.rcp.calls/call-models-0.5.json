@@ -1,0 +1,13 @@
+{
+  "D:\\Tools\\jre7\\lib\\rt.jar": {
+    "coordinate": "jre:jre:zip:call:1.0.0",
+    "location": "D:\\Tools\\jre7\\lib\\rt.jar",
+    "status": "RESOLVED",
+    "error": "No class path info available for \u0027D:\\Tools\\jre7\\lib\\rt.jar\u0027. Skipped."
+  },
+  "D:\\University\\2013_s2\\COMP3702\\AssignmentWorkspace\\comp3702ass1\\src": {
+    "location": "D:\\University\\2013_s2\\COMP3702\\AssignmentWorkspace\\comp3702ass1\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027D:\\University\\2013_s2\\COMP3702\\AssignmentWorkspace\\comp3702ass1\\src\u0027. Skipped."
+  }
+}

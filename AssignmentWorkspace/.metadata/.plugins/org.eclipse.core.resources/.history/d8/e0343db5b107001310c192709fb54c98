@@ -1,0 +1,22 @@
+import java.util.ArrayList;
+
+public class ASVSearch {
+	
+	private ArrayList<Asv> asvList;
+	/**
+	 * 
+	 */
+	public ASVSearch(ArrayList<Asv> asvs) {
+		asvList = new ArrayList<Asv>(asvs);
+	}
+	
+	public String toString() {
+		System.out.println("building the string");
+		StringBuilder s = new StringBuilder();
+		for (Asv asv : asvList) {
+			s.append(asv);
+		}
+		return s.toString();
+	}
+
+}

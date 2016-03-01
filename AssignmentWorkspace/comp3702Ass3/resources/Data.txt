@@ -1,0 +1,4 @@
+				time to train		results
+base results: 			7.5s			~75%
+with training preprocesor	58s			~60%
+full preprocessing

@@ -1,0 +1,13 @@
+import java.util.ArrayList;
+
+public class ASVSearch {
+	
+	private ArrayList<String> asvList;
+	/**
+	 * 
+	 */
+	public ASVSearch(ArrayList<String> asvs) {
+		asvList = new ArrayList<String>(asvs);
+	}
+
+}

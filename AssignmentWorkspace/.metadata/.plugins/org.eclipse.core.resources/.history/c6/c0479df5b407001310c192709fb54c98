@@ -1,0 +1,27 @@
+import java.util.ArrayList;
+
+public class ASVSearch {
+	
+	private ArrayList<Asv> asvList;
+	private ArrayList<String> obstacles;
+	/**
+	 * 
+	 */
+	public ASVSearch(ArrayList<Asv> asvs, ArrayList<String> obstacles) {
+		asvList = new ArrayList<Asv>(asvs);
+		this.obstacles = new ArrayList<String>(obstacles);
+	}
+	
+	public String toString() {
+		StringBuilder s = new StringBuilder();
+		for (Asv asv : asvList) {
+			s.append(asv);
+		}
+		s.append("\nObstacles:\n");
+		for (String o : this.obstacles) {
+			s.append(o);
+		}
+		return s.toString();
+	}
+
+}

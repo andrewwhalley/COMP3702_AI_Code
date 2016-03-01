@@ -1,0 +1,49 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+
+
+public class assg1_42588610_42719747 {
+
+	/**
+	 * @param args
+	 */
+	private static int numASV;
+	private static String initial;
+	private static String goal;
+	private static ArrayList<String> obstacles;
+	
+	private static void readFile(String inputFileName) throws IOException {
+		BufferedReader input = new BufferedReader(new FileReader(inputFileName)); 
+		// Read the number of ASV's from the file.
+		numASV = Integer.valueOf(input.readLine().trim());
+		// Read the initial and goal co-ordinates in
+		initial = input.readLine().trim();
+		goal = input.readLine().trim();
+		// Read the number of obstacles.
+		int numObstacles = Integer.valueOf(input.readLine().trim());
+		// Read in the co-ordinates of each obstacle
+		for (int i = 0; i < numObstacles; i++) {
+			obstacles.add(input.readLine());
+		}
+		input.close();
+	}
+	
+	public static void main(String[] args) {
+		// Input file first
+		// Output file second
+		String input_file_name = new String(args[0]);
+		String output_file_name = new String(args[1]);
+		// Attempt to read the input file
+		try {
+			readFile(input_file_name);
+		} catch (IOException e) {
+			System.err.println("Couldn't read from File " + input_file_name);
+			return;
+		}
+
+	}
+
+}
